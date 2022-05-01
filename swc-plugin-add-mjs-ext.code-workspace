@@ -1,0 +1,57 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+  "extensions": {
+    "recommendations": [
+      "bierner.github-markdown-preview",
+      "bungcip.better-toml",
+      "editorconfig.editorconfig",
+      "matklad.rust-analyzer",
+      "serayuzgur.crates",
+      "swellaby.vscode-rust-test-adapter"
+    ]
+  },
+  "settings": {
+    "[rust]": {
+      "editor.formatOnSave": true
+    }
+  },
+  "tasks": {
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build using cargo",
+        "type": "shell",
+        "command": "cargo build",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated"
+        },
+        "problemMatcher": ["$rustc"]
+      },
+      {
+        "label": "Test using cargo",
+        "type": "shell",
+        "command": "cargo test",
+        "group": {
+          "kind": "test",
+          "isDefault": true
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated"
+        },
+        "problemMatcher": ["$rustc"]
+      }
+    ]
+  }
+}
