@@ -1,9 +1,9 @@
 {
     "name": "swc-plugin-add-mjs-ext",
     "version": "0.1.0",
-    "description": "",
-    "author": "",
-    "license": "ISC",
+    "description": "swc plugin to add `.mjs` extension to esm imports and exports",
+    "author": "Mehdi Lahlou <mlahlou@protonmail.ch>",
+    "license": "MIT",
     "keywords": ["swc-plugin"],
     "main": "target/wasm32-wasi/release/swc-plugin-add-mjs-ext.wasm",
     "scripts": {
