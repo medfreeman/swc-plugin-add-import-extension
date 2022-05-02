@@ -1,7 +1,7 @@
 {
     "name": "swc-plugin-add-mjs-ext",
     "version": "0.1.0",
-    "description": "swc plugin to add `.mjs` extension to esm imports and exports",
+    "description": "SWC plugin to add `.mjs` extension to esm imports and exports",
     "author": "Mehdi Lahlou <mlahlou@protonmail.ch>",
     "license": "MIT",
     "keywords": ["swc-plugin"],
