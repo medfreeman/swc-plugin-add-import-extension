@@ -9,7 +9,7 @@
       "bierner.github-markdown-preview",
       "bungcip.better-toml",
       "editorconfig.editorconfig",
-      "matklad.rust-analyzer",
+      "rust-lang.rust-analyzer",
       "serayuzgur.crates",
       "swellaby.vscode-rust-test-adapter"
     ]
