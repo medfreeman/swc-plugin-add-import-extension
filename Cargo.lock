@@ -1180,19 +1180,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "swc-plugin-add-mjs-ext"
-version = "0.1.0"
-dependencies = [
- "once_cell",
- "regex",
- "serde",
- "swc_ecma_parser",
- "swc_ecma_transforms_testing",
- "swc_plugin",
- "tracing",
-]
-
-[[package]]
 name = "swc_atoms"
 version = "0.2.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1424,6 +1411,19 @@ dependencies = [
  "swc_ecma_visit",
  "swc_plugin_macro",
  "swc_plugin_proxy",
+]
+
+[[package]]
+name = "swc_plugin_add_import_extension"
+version = "0.1.0"
+dependencies = [
+ "once_cell",
+ "regex",
+ "serde",
+ "swc_ecma_parser",
+ "swc_ecma_transforms_testing",
+ "swc_plugin",
+ "tracing",
 ]
 
 [[package]]
