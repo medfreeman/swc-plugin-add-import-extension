@@ -1,3 +1,6 @@
 /target
 ^target/
 target
+
+# vscode project overrides
+.vscode
