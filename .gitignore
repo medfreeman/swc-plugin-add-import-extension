@@ -4,3 +4,5 @@ target
 
 # vscode project overrides
 .vscode
+# vscode docker devcontainer
+.devcontainer
