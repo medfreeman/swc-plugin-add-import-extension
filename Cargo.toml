@@ -1,18 +1,29 @@
 [package]
+authors = ["Mehdi Lahlou <mlahlou@protonmail.ch>"]
+description = "SWC plugin to add extensions to esm import and export specifiers"
+edition = "2021"
+license = "MIT"
 name = "swc_plugin_add_import_extension"
 version = "0.1.0"
-edition = "2021"
 
 [lib]
-crate-type = ["cdylib"]
-
-[dev-dependencies]
-swc_ecma_transforms_testing = "*"
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-once_cell = "1"
 regex = "1"
 serde = "1"
-swc_ecma_parser = "*"
-swc_plugin = "*"
+serde_json = "1.0.81"
+swc_cached = "0.3.5"
+swc_core = { version = "0.14.0", features = [
+  "plugin_transform",
+  "utils",
+  "visit",
+  "ast",
+  "common",
+  "parser"
+] }
 tracing = "*"
+
+[dev-dependencies]
+swc_ecma_transforms_testing = "0.106.0"
+testing = "0.29.4"
