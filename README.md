@@ -18,4 +18,14 @@ _Please note: All contributions are taken under the MIT license_
 ## 👥 Contributors
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/medfreeman">
+            <img src="https://avatars.githubusercontent.com/u/1805267?v=4" width="50;" alt="medfreeman"/>
+            <br />
+            <sub><b>medfreeman</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
