@@ -27,3 +27,12 @@ tracing = "*"
 [dev-dependencies]
 swc_ecma_transforms_testing = "0.106.0"
 testing = "0.29.4"
+
+[profile.release]
+# This removes more dead code
+codegen-units = 1
+lto = true
+# Optimize for size
+opt-level = "s"
+# Optimize for performance, this is default so you don't need to specify it
+# opt-level = "z"
