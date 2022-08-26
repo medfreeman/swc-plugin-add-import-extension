@@ -1,0 +1,23 @@
+name: Update contributor list
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  contributor_list:
+    name: Update contributor list
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Update contributor list
+        uses: akhilmhdh/contributors-readme-action@v2.3.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commit_message: "docs(README): update contributor list"
+          image_size: 50
+          use_username: true
