@@ -20,11 +20,7 @@ impl FoldImports {
             if let Some(group) = group {
                 let src = group.get(0).map_or("", |m| m.as_str());
 
-                return Some(Rewriter {
-                    key: name,
-                    config,
-                    src,
-                });
+                return Some(Rewriter::new(name, config, src));
             }
         }
 

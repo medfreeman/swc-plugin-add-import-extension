@@ -5,12 +5,16 @@ use super::config::SourceConfig;
 use swc_core::ast::*;
 
 pub struct Rewriter<'a> {
-    pub key: &'a str,
-    pub config: &'a SourceConfig,
-    pub src: &'a str,
+    key: &'a str,
+    config: &'a SourceConfig,
+    src: &'a str,
 }
 
 impl<'a> Rewriter<'a> {
+    pub fn new(key: &'a str, config: &'a SourceConfig, src: &'a str) -> Rewriter<'a> {
+        Rewriter { key, config, src }
+    }
+
     pub fn rewrite_import(&self, old_decl: &ImportDecl) -> ImportDecl {
         if old_decl.type_only || old_decl.asserts.is_some() {
             return old_decl.clone();
