@@ -47,7 +47,7 @@ impl Fold for FoldImports {
                     ModuleDecl::ExportNamed(decl) => match &decl.src {
                         Some(src) => match self.should_rewrite(&src.value) {
                             Some(rewriter) => {
-                                let rewritten = rewriter.rewrite_export(&decl);
+                                let rewritten = rewriter.rewrite_named_export(&decl);
                                 new_items.push(ModuleItem::ModuleDecl(ModuleDecl::ExportNamed(
                                     rewritten,
                                 )));
@@ -58,6 +58,14 @@ impl Fold for FoldImports {
                         None => {
                             new_items.push(ModuleItem::ModuleDecl(ModuleDecl::ExportNamed(decl)))
                         }
+                    },
+                    ModuleDecl::ExportAll(decl) => match self.should_rewrite(&decl.src.value) {
+                        Some(rewriter) => {
+                            let rewritten = rewriter.rewrite_export_all(&decl);
+                            new_items
+                                .push(ModuleItem::ModuleDecl(ModuleDecl::ExportAll(rewritten)));
+                        }
+                        None => new_items.push(ModuleItem::ModuleDecl(ModuleDecl::ExportAll(decl))),
                     },
                     x => {
                         new_items.push(ModuleItem::ModuleDecl(x));
