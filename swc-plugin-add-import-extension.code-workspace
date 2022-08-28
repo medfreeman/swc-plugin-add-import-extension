@@ -27,7 +27,8 @@
     "[rust]": {
       "editor.formatOnSave": true
     },
-    "rust-analyzer.cachePriming.enable": true
+    "rust-analyzer.cachePriming.enable": true,
+    "rust-analyzer.checkOnSave.command": "clippy"
   },
   "tasks": {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
