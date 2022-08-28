@@ -15,11 +15,7 @@ impl<'a> Rewriter<'a> {
         Rewriter { key, config, src }
     }
 
-    pub fn rewrite_import(&self, old_decl: &ImportDecl) -> ImportDecl {
-        if old_decl.type_only || old_decl.asserts.is_some() {
-            return old_decl.clone();
-        }
-
+    fn rewrite_src(&self) -> Str {
         let path = Path::new(self.src);
 
         let new_path = format!(
@@ -36,9 +32,17 @@ impl<'a> Rewriter<'a> {
             self.config.extension
         );
 
+        Str::from(new_path.as_ref())
+    }
+
+    pub fn rewrite_import(&self, old_decl: &ImportDecl) -> ImportDecl {
+        if old_decl.type_only || old_decl.asserts.is_some() {
+            return old_decl.clone();
+        }
+
         ImportDecl {
             specifiers: old_decl.specifiers.clone(),
-            src: Str::from(new_path.as_ref()),
+            src: self.rewrite_src(),
             span: old_decl.span,
             type_only: false,
             asserts: None,
@@ -50,25 +54,9 @@ impl<'a> Rewriter<'a> {
             return old_decl.clone();
         }
 
-        let path = Path::new(self.src);
-
-        let new_path = format!(
-            "{}{}.{}",
-            path.parent()
-                .unwrap()
-                .join(path.file_stem().unwrap())
-                .to_string_lossy(),
-            if self.config.add_index && path.extension() == None {
-                "/index"
-            } else {
-                ""
-            },
-            self.config.extension
-        );
-
         NamedExport {
             specifiers: old_decl.specifiers.clone(),
-            src: Option::from(Str::from(new_path.as_ref())),
+            src: Option::from(self.rewrite_src()),
             span: old_decl.span,
             type_only: false,
             asserts: None,
