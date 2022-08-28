@@ -1,3 +1,4 @@
+#![allow(clippy::not_unsafe_ptr_arg_deref)]
 pub mod plugin;
 use plugin::{add_import_extension, config::Config};
 
