@@ -1,5 +1,5 @@
 pub mod plugin;
-use plugin::{add_import_extension, Config};
+use plugin::{add_import_extension, config::Config};
 
 use swc_core::{
     ast::Program,

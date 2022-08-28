@@ -1,6 +1,9 @@
 use std::path::PathBuf;
 
-use swc_plugin_add_import_extension::plugin::{add_import_extension, Config, SourceConfig};
+use swc_plugin_add_import_extension::plugin::{
+    add_import_extension,
+    config::{Config, SourceConfig},
+};
 
 use swc_core::parser::{EsConfig, Syntax};
 use swc_ecma_transforms_testing::test_fixture;
