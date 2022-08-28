@@ -5,6 +5,8 @@ edition = "2021"
 license = "MIT"
 name = "swc_plugin_add_import_extension"
 version = "0.1.0"
+homepage = "https://github.com/medfreeman/swc-plugin-add-import-extension"
+repository = "git@github.com:medfreeman/swc-plugin-add-import-extension.git"
 
 [lib]
 crate-type = ["cdylib", "rlib"]

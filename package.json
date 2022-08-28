@@ -14,5 +14,7 @@
   "scripts": {
     "prepublishOnly": "cargo prepublish --release"
   },
-  "files": []
+  "files": [],
+  "repository": "git@github.com:medfreeman/swc-plugin-add-import-extension.git",
+  "homepage": "https://github.com/medfreeman/swc-plugin-add-import-extension"
 }
