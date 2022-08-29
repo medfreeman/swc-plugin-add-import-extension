@@ -16,9 +16,9 @@ pub fn add_import_extension_plugin(
     let sources = serde_json::from_str(
         &data
             .get_transform_plugin_config()
-            .expect("failed to get plugin config for add-import-extension"),
+            .expect("add-import-extension: failed to get plugin config"),
     )
-    .expect("invalid config");
+    .expect("add-import-extension: invalid plugin config");
 
     program.fold_with(&mut add_import_extension(Config { sources }))
 }
