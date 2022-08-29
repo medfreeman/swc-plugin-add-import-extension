@@ -7,6 +7,6 @@
     ":prHourlyLimit4",
     ":rebaseStalePrs",
     "schedule:weekly",
-    ":semanticPrefixFixDepsChoreOthers",
-  ],
+    ":semanticPrefixFixDepsChoreOthers"
+  ]
 }
