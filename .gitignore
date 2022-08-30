@@ -6,3 +6,8 @@ target
 .vscode
 # vscode docker devcontainer
 .devcontainer
+
+# examples
+node_modules/
+dist/
+.swc/
