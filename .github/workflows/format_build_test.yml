@@ -129,5 +129,7 @@ jobs:
           corepack enable
           pnpm install
 
-      - name: Run npm `test:e2e`
-        run: pnpm test:e2e
+      - name: Run pnpm `test:e2e`
+        run: |
+          cargo prepublish --release
+          cd examples/cli; pnpm swcx compile ./src --source-root ./src --out-dir dist --out-file-extension mjs --config-file .swcrc; cd ../..
