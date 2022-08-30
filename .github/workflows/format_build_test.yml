@@ -124,8 +124,10 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
-      - name: Install pnpm
-        run: corepack enable
+      - name: Install pnpm & deps
+        run: |
+          corepack enable
+          pnpm install
 
-      - name: Run cargo test
+      - name: Run npm `test:e2e`
         run: pnpm test:e2e
