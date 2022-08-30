@@ -70,7 +70,7 @@ jobs:
           command: build
 
   test:
-    name: Test
+    name: Library tests
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -100,7 +100,7 @@ jobs:
         run: pnpm test:lib
 
   test-e2e:
-    name: Test
+    name: End-to-end tests
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
