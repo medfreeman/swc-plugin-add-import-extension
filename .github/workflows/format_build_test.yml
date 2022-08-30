@@ -132,4 +132,4 @@ jobs:
       - name: Run pnpm `test:e2e`
         run: |
           cargo prepublish --release
-          cd examples/cli; pnpm swcx compile ./src --source-root ./src --out-dir dist --out-file-extension mjs --config-file .swcrc; cd ../..
+          cd examples/cli; ./node_modules/.bin/swcx compile ./src --source-root ./src --out-dir dist --out-file-extension mjs --config-file .swcrc; cd ../..
