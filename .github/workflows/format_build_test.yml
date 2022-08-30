@@ -82,13 +82,41 @@ jobs:
       - name: Install rustup `stable` toolchain
         uses: actions-rs/toolchain@v1
         with:
-            toolchain: stable
-            override: true
+          toolchain: stable
+          override: true
 
       - name: Use rust cache action
         uses: Swatinem/rust-cache@v2
 
-      - name: Run cargo test
-        uses: actions-rs/cargo@v1
+      - uses: actions/setup-node@v3
         with:
-          command: test
+          node-version-file: '.nvmrc'
+
+      - name: Run cargo test
+        uses: pnpm test:lib
+
+  test-e2e:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Install rustup `stable` toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Use rust cache action
+        uses: Swatinem/rust-cache@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Run cargo test
+        uses: pnpm test:e2e
