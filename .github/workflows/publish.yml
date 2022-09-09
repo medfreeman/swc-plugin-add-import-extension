@@ -1,0 +1,39 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - v*
+    branches:
+      - publish-test
+
+jobs:
+  publish:
+    name: Publish on npm & github packages
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Install rustup `stable` toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: stable
+            override: true
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install pnpm
+        run: corepack enable
+
+      - name: Use rust cache action
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run pnpm publish
+        run: pnpm publish --dry-run --publish-branch=publish-test
