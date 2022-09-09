@@ -8,6 +8,9 @@
     "pretest": "pnpm clean && pnpm build",
     "test": "dircompare --reason --show-all --compare-content tests/expected dist"
   },
+  "engines": {
+    "node": "^16.17.0 || ^18.7.0"
+  },
   "devDependencies": {
     "@swc/core": "1.2.245",
     "@yarnpkg/shell": "4.0.0-rc.18",

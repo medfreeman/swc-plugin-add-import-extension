@@ -9,6 +9,9 @@
     "pretest": "pnpm clean && pnpm build && pnpm build:move",
     "test": "dircompare --reason --show-all --compare-content tests/expected dist"
   },
+  "engines": {
+    "node": ">=10"
+  },
   "devDependencies": {
     "@swc/core": "1.2.245",
     "dir-compare-cli": "1.0.1",

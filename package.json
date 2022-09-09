@@ -25,7 +25,7 @@
   "homepage": "https://github.com/medfreeman/swc-plugin-add-import-extension",
   "bugs": "https://github.com/medfreeman/swc-plugin-add-import-extension/issues",
   "engines": {
-    "node": "^16.17.0 || ^18.7.0"
+    "node": ">=10"
   },
   "packageManager": "pnpm@7.11.0",
   "devDependencies": {
