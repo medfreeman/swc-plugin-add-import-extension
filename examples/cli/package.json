@@ -3,7 +3,7 @@
   "name": "example-cli",
   "version": "0.0.0",
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "rm -rf ./dist || del .\\dist",
     "build": "swcx compile ./src --source-root ./src --out-dir dist --out-file-extension mjs --config-file .swcrc",
     "build:move": "mv dist/src/* dist/ && rm -rf dist/src",
     "pretest": "pnpm clean && pnpm build && pnpm build:move",
