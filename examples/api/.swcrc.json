@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+
+  "isModule": true,
+  "module": {
+      "type": "es6"
+  },
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "exportDefaultFrom": true,
+      "topLevelAwait": true
+    },
+    "target": "es2022",
+    "transform": null,
+    "loose": false,
+    "minify": {
+        "compress": false,
+        "mangle": false
+    },
+    "experimental": {
+      "plugins": [ ["swc-plugin-add-import-extension", {
+        "^~.*": {
+          "extension": "mjs",
+          "addIndex": true
+        },
+        "^\\..*": {
+          "extension": "mjs",
+          "addIndex": false
+        }
+      }] ]
+    },
+    "externalHelpers": false,
+    "paths": {
+      "~utils": ["./src/utils"],
+      "~utils/*": ["./src/utils/*"]
+    }
+  },
+  "minify": false
+}

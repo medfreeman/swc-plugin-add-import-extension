@@ -1,0 +1,18 @@
+{
+  "private": "true",
+  "name": "example-api",
+  "version": "0.0.0",
+  "scripts": {
+    "clean": "rm -rf ./dist || del .\\dist",
+    "build": "find src -type f | .build/build.mjs",
+    "pretest": "pnpm clean && pnpm build",
+    "test": "dircompare --reason --show-all --compare-content tests/expected dist"
+  },
+  "devDependencies": {
+    "@swc/core": "1.2.245",
+    "@yarnpkg/shell": "4.0.0-rc.18",
+    "dir-compare-cli": "1.0.1",
+    "fs.promises.exists": "1.1.3",
+    "swc-plugin-add-import-extension": "workspace:*"
+  }
+}
