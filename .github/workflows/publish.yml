@@ -21,8 +21,9 @@ jobs:
       - name: Install rustup `stable` toolchain
         uses: actions-rs/toolchain@v1
         with:
-            toolchain: stable
-            override: true
+          toolchain: stable
+          target: wasm32-wasi
+          override: true
 
       - name: Setup node.js
         uses: actions/setup-node@v3
