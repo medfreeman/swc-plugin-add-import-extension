@@ -1,6 +1,6 @@
 # swc-plugin-add-import-extension
 
-> SWC plugin to add extensions to esm import and export specifiers
+> [`SWC`](https://swc.rs) plugin to add extensions to [`esm`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) import and export module names
 
 ## 📄 Notes
 

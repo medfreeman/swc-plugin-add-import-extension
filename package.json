@@ -1,7 +1,7 @@
 {
   "name": "swc-plugin-add-import-extension",
   "version": "0.1.0",
-  "description": "SWC plugin to add extensions to esm import and export specifiers",
+  "description": "SWC plugin to add extensions to esm import and export module names",
   "author": "Mehdi Lahlou <mlahlou@protonmail.ch>",
   "license": "MIT",
   "keywords": [
