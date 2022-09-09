@@ -24,7 +24,7 @@ const entryPoints = await readPipe();
 const transpileFile = transpileFileFactory({ swcConfig });
 
 await Promise.all(entryPoints.map(async (entryPoint) => {
-  const { code, map } = await transpileFile(entryPoint);
+  const { code } = await transpileFile(entryPoint);
 
   const relativeFileSourcePath = relative("src", entryPoint);
   const relativeFileOutputPath = `${join(outputFolder, dirname(relativeFileSourcePath), basename(relativeFileSourcePath, extname(relativeFileSourcePath)))}.mjs`;
