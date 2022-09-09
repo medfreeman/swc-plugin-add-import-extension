@@ -7,17 +7,10 @@
   },
   "jsc": {
     "parser": {
-      "syntax": "typescript",
-      "exportDefaultFrom": true,
-      "topLevelAwait": true
+      "syntax": "typescript"
     },
     "target": "es2022",
-    "transform": null,
     "loose": false,
-    "minify": {
-      "compress": false,
-      "mangle": false
-    },
     "experimental": {
       "plugins": [
         [
