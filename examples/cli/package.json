@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "scripts": {
     "clean": "rm -rf ./dist || del .\\dist",
-    "build": "swcx compile ./src --source-root ./src --out-dir dist --out-file-extension mjs --config-file .swcrc",
-    "build:move": "(mv dist/src/* dist/ || move dist/src/* dist/) && (rm -rf dist/src || del .\\dist\\src)",
-    "pretest": "pnpm clean && pnpm build && pnpm build:move",
-    "test": "dircompare --reason --show-all --compare-content tests/expected dist"
+    "build": "pnpm clean && pnpm build:compile && pnpm build:move",
+    "build:compile": "swcx compile ./src --source-root ./src --out-dir ./dist --out-file-extension mjs --config-file ./.swcrc",
+    "build:move": "(mv ./dist/src/* ./dist/ || move ./dist/src/* ./dist/) && (rm -rf ./dist/src || del .\\dist\\src)",
+    "test": "pnpm build && pnpm test:e2e",
+    "test:e2e": "dircompare --reason --show-all --compare-content ./tests/expected ./dist"
   },
   "engines": {
     "node": ">=10"

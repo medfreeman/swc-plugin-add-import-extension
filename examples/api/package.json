@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "scripts": {
     "clean": "rm -rf ./dist || del .\\dist",
-    "build": "find src -type f | .build/build.mjs",
-    "pretest": "pnpm clean && pnpm build",
-    "test": "dircompare --reason --show-all --compare-content tests/expected dist"
+    "build": "pnpm clean && pnpm build:compile",
+    "build:compile": "find ./src -type f | ./.build/build.mjs",
+    "test": "pnpm build && pnpm test:e2e",
+    "test:e2e": "dircompare --reason --show-all --compare-content ./tests/expected ./dist"
   },
   "engines": {
     "node": "^16.17.0 || ^18.7.0"
