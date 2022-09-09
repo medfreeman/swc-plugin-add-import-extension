@@ -88,8 +88,46 @@ jobs:
       - name: Use rust cache action
         uses: Swatinem/rust-cache@v2
 
-      - name: Run cargo test
-        uses: actions-rs/cargo@v1
+      - name: Setup node.js
+        uses: actions/setup-node@v3
         with:
-          command: test
-          args: --release
+          node-version-file: '.nvmrc'
+
+      - name: Install pnpm
+        run: corepack enable
+
+      - name: Run cargo test
+        run: pnpm test:lib
+
+  test-e2e:
+    name: End-to-end tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Install rustup `stable` toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: wasm32-wasi
+          override: true
+
+      - name: Use rust cache action
+        uses: Swatinem/rust-cache@v2
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install pnpm & deps
+        run: |
+          corepack enable
+          pnpm install
+
+      - name: Run npm `test:e2e`
+        run: pnpm test:e2e
