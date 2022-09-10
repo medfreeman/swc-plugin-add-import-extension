@@ -31,8 +31,10 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install pnpm
-        run: corepack enable
+      - name: Install pnpm & deps
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
 
       - name: Use rust cache action
         uses: Swatinem/rust-cache@v2
@@ -64,8 +66,10 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
-      - name: Install pnpm
-        run: corepack enable
+      - name: Install pnpm & deps
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
 
       - name: Use rust cache action
         uses: Swatinem/rust-cache@v2

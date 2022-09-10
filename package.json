@@ -16,7 +16,7 @@
   "scripts": {
     "prepublishOnly": "pnpm build:release && pnpm pkg:redact-engines",
     "build:release": "cargo prepublish --release",
-    "pkg:redact-engines": "pnpx json -I -f package.json -e 'this.engines=undefined'",
+    "pkg:redact-engines": "pnpm json -I -f package.json -e 'this.engines=undefined'",
     "test": "pnpm run test:lib && pnpm run test:e2e",
     "test:lib": "cargo test --release",
     "test:e2e": "pnpm build:release && pnpm test --filter=example-* --workspace-concurrency=1",
@@ -33,6 +33,7 @@
   "packageManager": "pnpm@7.11.0",
   "devDependencies": {
     "@changesets/changelog-github": "0.4.6",
-    "@changesets/cli": "2.24.4"
+    "@changesets/cli": "2.24.4",
+    "json": "11.0.0"
   }
 }
