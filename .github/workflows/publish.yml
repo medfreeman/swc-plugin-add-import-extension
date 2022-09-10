@@ -48,6 +48,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
 
       - name: Run pnpm publish
-        run: pnpm publish --dry-run --publish-branch=publish-test
+        run: pnpm publish --no-git-checks --dry-run --publish-branch=publish-test
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
