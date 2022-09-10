@@ -8,8 +8,8 @@ on:
       - publish-test
 
 jobs:
-  publish:
-    name: Publish on npm & github packages
+  publish-npm:
+    name: Publish on npm
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -42,13 +42,36 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Setup node.js with GitHub packages registry
+  publish-github:
+    name: Publish on github packages
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Install rustup `stable` toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: wasm32-wasi
+          override: true
+
+      - name: Setup node.js with NPM registry
         uses: actions/setup-node@v3
         with:
+          node-version-file: '.nvmrc'
           registry-url: 'https://npm.pkg.github.com'
-          scope: 'medfreeman'
+
+      - name: Install pnpm
+        run: corepack enable
+
+      - name: Use rust cache action
+        uses: Swatinem/rust-cache@v2
 
       - name: Run pnpm publish
-        run: pnpm publish --no-git-checks --dry-run --publish-branch=publish-test
+        run: pnpm publish --dry-run --publish-branch=publish-test
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
