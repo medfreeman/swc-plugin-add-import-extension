@@ -46,6 +46,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           registry-url: 'https://npm.pkg.github.com'
+          scope: 'medfreeman'
 
       - name: Run pnpm publish
         run: pnpm publish --no-git-checks --dry-run --publish-branch=publish-test
