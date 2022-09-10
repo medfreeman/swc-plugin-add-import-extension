@@ -29,6 +29,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install pnpm
         run: corepack enable
@@ -38,3 +39,5 @@ jobs:
 
       - name: Run pnpm publish
         run: pnpm publish --dry-run --publish-branch=publish-test
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
