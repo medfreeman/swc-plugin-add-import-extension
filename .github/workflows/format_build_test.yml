@@ -144,5 +144,5 @@ jobs:
 
       - name: Run npm `test:e2e`
         run: |
-          pnpm prepublishOnly
+          pnpm build:release
           pnpm test --filter=example-api
