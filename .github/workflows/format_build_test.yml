@@ -11,6 +11,8 @@ on:
 jobs:
   format:
     name: Format
+    permissions:
+      contents: write
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
