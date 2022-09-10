@@ -28,7 +28,7 @@ swc_core = { version = "0.17.0", features = [
 tracing = "*"
 
 [dev-dependencies]
-swc_ecma_transforms_testing = "0.108.0"
+swc_ecma_transforms_testing = "0.110.0"
 testing = "0.30.0"
 
 [profile.release]
