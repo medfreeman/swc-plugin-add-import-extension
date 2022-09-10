@@ -1,5 +1,8 @@
 name: Publish
 
+permissions:
+  contents: read
+
 on:
   push:
     tags:
@@ -46,6 +49,9 @@ jobs:
 
   publish-github:
     name: Publish on github packages
+    permissions:
+      contents: read
+      packages: write
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
