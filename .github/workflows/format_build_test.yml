@@ -11,8 +11,6 @@ on:
 jobs:
   format:
     name: Format
-    permissions:
-      contents: write
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -37,6 +35,8 @@ jobs:
           args: --all -- --check
 
       - name: Run cargo clippy
+        permissions:
+          contents: write
         uses: actions-rs/clippy-check@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
