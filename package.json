@@ -18,6 +18,7 @@
     "test": "pnpm run test:lib && pnpm run test:e2e",
     "test:lib": "cargo test --release",
     "test:e2e": "pnpm prepublishOnly && pnpm test --filter=example-* --workspace-concurrency=1",
+    "changeset": "changeset",
     "release": "pnpm changeset version && pnpm changeset tag"
   },
   "files": [],
