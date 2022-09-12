@@ -6,7 +6,7 @@ permissions:
 on:
   push:
     tags:
-      - v*
+      - swc-plugin-add-import-extension@[0-9]+.[0-9]+.[0-9]+
     branches:
       - publish-test
 
@@ -97,5 +97,5 @@ jobs:
       - uses: taiki-e/create-gh-release-action@v1.6.0
         with:
           changelog: CHANGELOG.md
-          branch: main
+          branch: publish-test
           token: ${{ secrets.GITHUB_TOKEN }}
