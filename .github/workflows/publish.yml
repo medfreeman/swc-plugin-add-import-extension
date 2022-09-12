@@ -92,4 +92,5 @@ jobs:
         with:
           changelog: CHANGELOG.md
           branch: publish-test
+          prefix: swc-plugin-add-import-extension@
           token: ${{ secrets.GITHUB_TOKEN }}
