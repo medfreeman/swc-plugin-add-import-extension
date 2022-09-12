@@ -86,3 +86,16 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_REGISTRY: 'https://npm.pkg.github.com'
+
+  create-release:
+    name: Create a github release based on changelog
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: taiki-e/create-gh-release-action@v1.6.0
+        with:
+          changelog: CHANGELOG.md
+          branch: main
+          token: ${{ secrets.GITHUB_TOKEN }}
