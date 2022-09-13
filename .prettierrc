@@ -27,6 +27,12 @@
         "options": {
           "parser": "markdown"
         }
+      },
+      {
+        "files": "*.{yml,yaml}",
+        "options": {
+          "parser": "yaml"
+        }
       }
     ]
 }
