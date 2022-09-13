@@ -1,0 +1,94 @@
+name: Publish
+
+permissions:
+  contents: read
+
+on:
+  push:
+    tags:
+      - swc-plugin-add-import-extension@[0-9]+.[0-9]+.[0-9]+
+
+jobs:
+  publish-npm:
+    name: Publish on npm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Install rustup `stable` toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: wasm32-wasi
+          override: true
+
+      - name: Setup node.js with NPM registry
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install pnpm & deps
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Use rust cache action
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run pnpm publish
+        run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-github:
+    name: Publish on github packages
+    permissions:
+      contents: read
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Install rustup `stable` toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: wasm32-wasi
+          override: true
+
+      - name: Setup node.js with github packages registry
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Install pnpm & deps
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Use rust cache action
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run pnpm publish
+        run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_CONFIG_REGISTRY: 'https://npm.pkg.github.com'
+
+  create-release:
+    name: Create a github release based on changelog
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: taiki-e/create-gh-release-action@v1.6.0
+        with:
+          changelog: CHANGELOG.md
+          branch: main
+          prefix: swc-plugin-add-import-extension@
+          token: ${{ secrets.GITHUB_TOKEN }}
