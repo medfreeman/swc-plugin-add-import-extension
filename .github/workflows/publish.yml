@@ -7,8 +7,6 @@ on:
   push:
     tags:
       - swc-plugin-add-import-extension@[0-9]+.[0-9]+.[0-9]+
-    branches:
-      - publish-test
 
 jobs:
   publish-npm:
@@ -40,7 +38,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Run pnpm publish
-        run: pnpm publish --dry-run --publish-branch=publish-test
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -76,7 +74,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Run pnpm publish
-        run: pnpm publish --dry-run --publish-branch=publish-test
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_REGISTRY: 'https://npm.pkg.github.com'
@@ -91,6 +89,6 @@ jobs:
       - uses: taiki-e/create-gh-release-action@v1.6.0
         with:
           changelog: CHANGELOG.md
-          branch: publish-test
+          branch: main
           prefix: swc-plugin-add-import-extension@
           token: ${{ secrets.GITHUB_TOKEN }}
