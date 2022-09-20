@@ -38,7 +38,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Run pnpm publish
-        run: pnpm publish
+        run: pnpm publish --tag $GITHUB_REF_NAME
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -74,7 +74,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Run pnpm publish
-        run: pnpm publish
+        run: pnpm publish --tag $GITHUB_REF_NAME
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_REGISTRY: 'https://npm.pkg.github.com'
