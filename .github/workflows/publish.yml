@@ -16,10 +16,9 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v3
 
-      - name: Install rustup `stable` toolchain
+      - name: Install configured rustup toolchain
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
           target: wasm32-wasi
           override: true
 
@@ -52,10 +51,9 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v3
 
-      - name: Install rustup `stable` toolchain
+      - name: Install configured rustup toolchain
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
           target: wasm32-wasi
           override: true
 
