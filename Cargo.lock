@@ -1559,7 +1559,7 @@ dependencies = [
 
 [[package]]
 name = "swc_plugin_add_import_extension"
-version = "1.0.0-alpha.1"
+version = "1.0.0-alpha.2"
 dependencies = [
  "regex",
  "serde",
