@@ -4,11 +4,11 @@ importers:
 
   .:
     specifiers:
-      '@changesets/changelog-github': 0.4.6
+      '@changesets/changelog-github': 0.4.7
       '@changesets/cli': 2.25.0
       json: 11.0.0
     devDependencies:
-      '@changesets/changelog-github': 0.4.6
+      '@changesets/changelog-github': 0.4.7
       '@changesets/cli': 2.25.0
       json: 11.0.0
 
@@ -101,11 +101,11 @@ packages:
       '@changesets/types': 5.2.0
     dev: true
 
-  /@changesets/changelog-github/0.4.6:
-    resolution: {integrity: sha512-ahR/+o3OPodzfG9kucEMU/tEtBgwy6QoJiWi1sDBPme8n3WjT6pBlbhqNYpWAJKilomwfjBGY0MTUTs6r9d1RQ==}
+  /@changesets/changelog-github/0.4.7:
+    resolution: {integrity: sha512-UUG5sKwShs5ha1GFnayUpZNcDGWoY7F5XxhOEHS62sDPOtoHQZsG3j1nC5RxZ3M1URHA321cwVZHeXgu99Y3ew==}
     dependencies:
       '@changesets/get-github-info': 0.5.1
-      '@changesets/types': 5.1.0
+      '@changesets/types': 5.2.0
       dotenv: 8.6.0
     transitivePeerDependencies:
       - encoding
@@ -252,10 +252,6 @@ packages:
 
   /@changesets/types/4.1.0:
     resolution: {integrity: sha512-LDQvVDv5Kb50ny2s25Fhm3d9QSZimsoUGBsUioj6MC3qbMUCuC8GPIvk/M6IvXx3lYhAs0lwWUQLb+VIEUCECw==}
-    dev: true
-
-  /@changesets/types/5.1.0:
-    resolution: {integrity: sha512-uUByGATZCdaPkaO9JkBsgGDjEvHyY2Sb0e/J23+cwxBi5h0fxpLF/HObggO/Fw8T2nxK6zDfJbPsdQt5RwYFJA==}
     dev: true
 
   /@changesets/types/5.2.0:
