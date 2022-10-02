@@ -3,7 +3,7 @@
   "name": "example-api",
   "version": "0.0.0",
   "scripts": {
-    "clean": "rm -rf ./dist || del .\\dist",
+    "clean": "rm -rf ./dist || del .\\dist && rm -rf ./.swc || del .\\.swc",
     "build": "pnpm clean && pnpm build:compile",
     "build:compile": "find ./src -type f | ./.build/build.mjs",
     "test": "pnpm build && pnpm test:e2e",
