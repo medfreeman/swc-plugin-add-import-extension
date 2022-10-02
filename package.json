@@ -33,7 +33,7 @@
   "packageManager": "pnpm@7.12.2",
   "devDependencies": {
     "@changesets/changelog-github": "0.4.6",
-    "@changesets/cli": "2.24.4",
+    "@changesets/cli": "2.25.0",
     "json": "11.0.0"
   }
 }
