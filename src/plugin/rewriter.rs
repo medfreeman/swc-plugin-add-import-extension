@@ -2,7 +2,7 @@ use std::path::Path;
 
 use super::config::SourceConfig;
 
-use swc_core::ast::*;
+use swc_core::ecma::ast::*;
 
 pub struct Rewriter<'a> {
     key: &'a str,
@@ -24,7 +24,7 @@ impl<'a> Rewriter<'a> {
                 .unwrap()
                 .join(path.file_stem().unwrap())
                 .to_string_lossy(),
-            if self.config.add_index && path.extension() == None {
+            if self.config.add_index && path.extension().is_none() {
                 "/index"
             } else {
                 ""
@@ -42,7 +42,7 @@ impl<'a> Rewriter<'a> {
 
         ImportDecl {
             specifiers: old_decl.specifiers.clone(),
-            src: self.rewrite_src(),
+            src: Box::new(self.rewrite_src()),
             span: old_decl.span,
             type_only: false,
             asserts: None,
@@ -56,7 +56,7 @@ impl<'a> Rewriter<'a> {
 
         NamedExport {
             specifiers: old_decl.specifiers.clone(),
-            src: Option::from(self.rewrite_src()),
+            src: Option::from(Box::new(self.rewrite_src())),
             span: old_decl.span,
             type_only: false,
             asserts: None,
@@ -69,7 +69,7 @@ impl<'a> Rewriter<'a> {
         }
 
         ExportAll {
-            src: self.rewrite_src(),
+            src: Box::new(self.rewrite_src()),
             span: old_decl.span,
             asserts: None,
         }

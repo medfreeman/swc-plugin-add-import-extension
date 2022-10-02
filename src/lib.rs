@@ -3,9 +3,9 @@ pub mod plugin;
 use plugin::{add_import_extension, config::Config};
 
 use swc_core::{
-    ast::Program,
+    ecma::ast::Program,
+    ecma::visit::FoldWith,
     plugin::{plugin_transform, proxies::TransformPluginProgramMetadata},
-    visit::FoldWith,
 };
 
 #[plugin_transform]

@@ -5,8 +5,10 @@ use swc_plugin_add_import_extension::plugin::{
     config::{Config, SourceConfig},
 };
 
-use swc_core::parser::{EsConfig, Syntax};
-use swc_ecma_transforms_testing::test_fixture;
+use swc_core::{
+    ecma::parser::{EsConfig, Syntax},
+    ecma::transforms::testing::test_fixture,
+};
 use testing::fixture;
 
 fn syntax() -> Syntax {

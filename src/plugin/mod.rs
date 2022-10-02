@@ -5,9 +5,9 @@ use config::{Config, SourceConfig};
 mod rewriter;
 use rewriter::Rewriter;
 
-use swc_cached::regex::CachedRegex;
-use swc_core::ast::*;
-use swc_core::visit::{noop_fold_type, Fold};
+use swc_core::cached::regex::CachedRegex;
+use swc_core::ecma::ast::*;
+use swc_core::ecma::visit::{noop_fold_type, Fold};
 
 struct FoldImports {
     sources: Vec<(CachedRegex, SourceConfig)>,
