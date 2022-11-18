@@ -37,5 +37,6 @@ fn add_import_extension_fixture(input: PathBuf) {
         },
         &input,
         &output,
+        swc_core::ecma::transforms::testing::FixtureTestConfig::default(),
     );
 }
