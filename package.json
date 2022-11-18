@@ -19,7 +19,7 @@
     "pkg:redact-engines": "pnpm json -I -f package.json -e 'this.engines=undefined'",
     "test": "pnpm run test:lib && pnpm run test:e2e",
     "test:lib": "cargo test --release",
-    "test:e2e": "pnpm build:release && pnpm test --filter=example-* --workspace-concurrency=1",
+    "test:e2e": "pnpm build:release && pnpm test --recursive --filter=example-* --workspace-concurrency=1",
     "changeset": "changeset",
     "release": "pnpm changeset version && pnpm changeset tag"
   },
