@@ -139,6 +139,4 @@ jobs:
           pnpm install
 
       - name: Run npm `test:e2e`
-        run: |
-          pnpm build:release
-          pnpm test --filter=example-api
+        run: pnpm test:e2e
