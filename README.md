@@ -15,6 +15,21 @@ Contributions are welcome! Whether it is a small documentation change or a break
 
 _Please note: All contributions are taken under the MIT license_
 
+## ⚙️ Development
+
+> :information_source:
+> This project depends on [fnm](https://github.com/Schniz/fnm) & [vscode](https://code.visualstudio.com/) for a unified development environment.
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup target add wasm32-wasi
+
+fnm use --install-if-missing
+corepack enable
+pnpm install
+code ./swc-plugin-add-import-extension.code-workspace
+```
+
 ## 👥 Contributors
 
 <!-- readme: contributors -start -->
