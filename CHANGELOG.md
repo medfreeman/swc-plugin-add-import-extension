@@ -1,5 +1,11 @@
 # swc-plugin-add-import-extension
 
+## 1.0.0-alpha.4
+
+### Patch Changes
+
+- chore(deps): update rust crate swc_core to 0.58.3 (#29)
+
 ## 1.0.0-alpha.3
 
 ### Patch Changes
