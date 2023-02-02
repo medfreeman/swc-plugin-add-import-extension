@@ -21,8 +21,6 @@ jobs:
 
       - name: Install configured rustup toolchain
         uses: actions-rs/toolchain@v1
-        with:
-          override: true
 
       - name: Use rust cache action
         uses: Swatinem/rust-cache@v2
@@ -64,8 +62,6 @@ jobs:
 
       - name: Install configured rustup toolchain
         uses: actions-rs/toolchain@v1
-        with:
-          override: true
 
       - name: Use rust cache action
         uses: Swatinem/rust-cache@v2
@@ -92,8 +88,6 @@ jobs:
 
       - name: Install configured rustup toolchain
         uses: actions-rs/toolchain@v1
-        with:
-          override: true
 
       - name: Use rust cache action
         uses: Swatinem/rust-cache@v2
@@ -123,7 +117,6 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           target: wasm32-wasi
-          override: true
 
       - name: Use rust cache action
         uses: Swatinem/rust-cache@v2
