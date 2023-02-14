@@ -22,7 +22,8 @@ _Please note: All contributions are taken under the MIT license_
 
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup target add wasm32-wasi
+rustup update
+rustup show
 
 fnm use --install-if-missing
 corepack enable
