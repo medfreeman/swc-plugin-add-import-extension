@@ -1,1 +1,4 @@
-1.66.1
+[toolchain]
+channel = "1.66.1"
+targets = [ "wasm32-unknown-unknown", "x86_64-unknown-linux-gnu" ]
+profile = "default"
