@@ -16,7 +16,7 @@ crate-type = ["cdylib", "rlib"]
 regex = "1"
 serde = "1"
 serde_json = "1.0.85"
-swc_core = { version = "0.67.0", features = [
+swc_core = { version = "0.67.2", features = [
   "cached",
   "common",
   "ecma_ast",
@@ -28,7 +28,7 @@ swc_core = { version = "0.67.0", features = [
 tracing = "*"
 
 [dev-dependencies]
-swc_core = { version = "0.67.0", features = ["testing_transform"] }
+swc_core = { version = "0.67.2", features = ["testing_transform"] }
 testing = "0.31.3"
 
 [profile.release]
