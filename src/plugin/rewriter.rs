@@ -64,7 +64,7 @@ impl<'a> Rewriter<'a> {
     }
 
     pub fn rewrite_export_all(&self, old_decl: &ExportAll) -> ExportAll {
-        if old_decl.asserts.is_some() {
+        if old_decl.type_only || old_decl.asserts.is_some() {
             return old_decl.clone();
         }
 
@@ -72,6 +72,7 @@ impl<'a> Rewriter<'a> {
             src: Box::new(self.rewrite_src()),
             span: old_decl.span,
             asserts: None,
+            type_only: false,
         }
     }
 }
