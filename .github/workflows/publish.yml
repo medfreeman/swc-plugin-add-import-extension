@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: taiki-e/create-gh-release-action@v1.6.2
+      - uses: taiki-e/create-gh-release-action@v1.7.0
         with:
           changelog: CHANGELOG.md
           branch: main
