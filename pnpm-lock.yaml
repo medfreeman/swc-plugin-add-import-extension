@@ -8,8 +8,8 @@ importers:
         specifier: 0.4.8
         version: 0.4.8
       '@changesets/cli':
-        specifier: 2.26.0
-        version: 2.26.0
+        specifier: 2.26.1
+        version: 2.26.1
       json:
         specifier: 11.0.0
         version: 11.0.0
@@ -122,8 +122,8 @@ packages:
       - encoding
     dev: true
 
-  /@changesets/cli@2.26.0:
-    resolution: {integrity: sha512-0cbTiDms+ICTVtEwAFLNW0jBNex9f5+fFv3I771nBvdnV/mOjd1QJ4+f8KtVSOrwD9SJkk9xbDkWFb0oXd8d1Q==}
+  /@changesets/cli@2.26.1:
+    resolution: {integrity: sha512-XnTa+b51vt057fyAudvDKGB0Sh72xutQZNAdXkCqPBKO2zvs2yYZx5hFZj1u9cbtpwM6Sxtcr02/FQJfZOzemQ==}
     hasBin: true
     dependencies:
       '@babel/runtime': 7.20.7
