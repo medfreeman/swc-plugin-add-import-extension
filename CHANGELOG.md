@@ -1,5 +1,12 @@
 # swc-plugin-add-import-extension
 
+## 1.0.0-alpha.5
+
+### Patch Changes
+
+- chore(deps): update rust crate swc_core to 0.67.2 (#42)
+- chore(rewriter): skip processing non-relative urls
+
 ## 1.0.0-alpha.4
 
 ### Patch Changes
