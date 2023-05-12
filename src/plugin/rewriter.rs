@@ -3,6 +3,7 @@ use std::path::Path;
 use super::config::SourceConfig;
 
 use swc_core::ecma::ast::*;
+use url::{ParseError, Url};
 
 pub struct Rewriter<'a> {
     key: &'a str,
@@ -16,7 +17,15 @@ impl<'a> Rewriter<'a> {
     }
 
     fn rewrite_src(&self) -> Str {
-        let path = Path::new(self.src);
+        let url = Url::parse(self.src);
+
+        let path = match url {
+            Ok(_) => return self.src.into(),
+            Err(error) => match error {
+                ParseError::RelativeUrlWithoutBase => Path::new(self.src),
+                _other_error => return self.src.into(),
+            },
+        };
 
         let new_path = format!(
             "{}{}.{}",

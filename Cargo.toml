@@ -26,6 +26,7 @@ swc_core = { version = "0.75.48", features = [
   "ecma_visit",
 ] }
 tracing = "*"
+url = "2.3.1"
 
 [dev-dependencies]
 swc_core = { version = "0.75.48", features = ["testing_transform"] }
