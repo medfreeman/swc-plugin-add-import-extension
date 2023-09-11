@@ -17,7 +17,7 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Update rust toolchain
         run: |
@@ -60,7 +60,7 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Update rust toolchain
         run: |
@@ -88,7 +88,7 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Update rust toolchain
         run: |
@@ -117,7 +117,7 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Update rust toolchain
         run: |
