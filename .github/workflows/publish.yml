@@ -22,7 +22,7 @@ jobs:
           rustup show
 
       - name: Setup node.js with NPM registry
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
@@ -56,7 +56,7 @@ jobs:
           rustup show
 
       - name: Setup node.js with github packages registry
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           registry-url: 'https://npm.pkg.github.com'
