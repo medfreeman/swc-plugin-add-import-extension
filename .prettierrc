@@ -3,13 +3,12 @@
 
     "printWidth": 80,
     "singleQuote": false,
-    "parser": "babel-ts",
     "semi": true,
     "trailingComma": "all",
     "endOfLine": "lf",
     "overrides": [
       {
-        "files": "*.json",
+        "files": "*.json,*.code-workspace,.prettierrc",
         "options": {
           "parser": "json"
         }
