@@ -7,17 +7,15 @@
   "extensions": {
     "recommendations": [
       "bierner.github-markdown-preview",
-      "bungcip.better-toml",
       "editorconfig.editorconfig",
       "esbenp.prettier-vscode",
       "rust-lang.rust-analyzer",
       "mrmlnc.vscode-json5",
       "serayuzgur.crates",
-      "swellaby.vscode-rust-test-adapter"
+      "swellaby.vscode-rust-test-adapter",
+      "tamasfe.even-better-toml"
     ],
-    "unwantedRecommendations": [
-      "rust-lang.rust"
-    ]
+    "unwantedRecommendations": ["bungcip.better-toml", "rust-lang.rust"]
   },
   "settings": {
     "[json]": {
@@ -35,13 +33,27 @@
       "editor.formatOnSave": true
     },
     "rust-analyzer.cachePriming.enable": true,
-    "rust-analyzer.checkOnSave.command": "clippy"
+    "rust-analyzer.checkOnSave": false
   },
   "tasks": {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
+      {
+        "label": "Clippy",
+        "group": "build",
+        "type": "shell",
+        "command": "cargo watch -w Cargo.toml -w src/ -x 'clippy --all-features -- -D warnings'",
+        "problemMatcher": ["$rustc-watch"],
+        "isBackground": true,
+        "runOptions": {
+          "runOn": "folderOpen"
+        },
+        "presentation": {
+          "reveal": "never"
+        }
+      },
       {
         "label": "Build using cargo",
         "type": "shell",

@@ -32,6 +32,10 @@ url = "2.3.1"
 swc_core = { version = "0.75.48", features = ["testing_transform"] }
 testing = "0.33.0"
 
+[package.metadata.bin]
+cargo-binstall = { version = "1.4.5", locked = true }
+cargo-watch = { version = "8.4.1", locked = true }
+
 [profile.release]
 # This removes more dead code
 codegen-units = 1
