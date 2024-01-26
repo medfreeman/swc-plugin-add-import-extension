@@ -6,6 +6,7 @@
     "type": "es6"
   },
   "jsc": {
+    "baseUrl": ".",
     "parser": {
       "syntax": "typescript"
     },
