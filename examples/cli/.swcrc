@@ -3,25 +3,31 @@
 
   "isModule": true,
   "module": {
-      "type": "es6"
+    "type": "es6"
   },
   "jsc": {
+    "baseUrl": ".",
     "parser": {
       "syntax": "typescript"
     },
     "target": "es2022",
     "loose": false,
     "experimental": {
-      "plugins": [ ["swc-plugin-add-import-extension", {
-        "^~.*": {
-          "extension": "mjs",
-          "addIndex": true
-        },
-        "^\\..*": {
-          "extension": "mjs",
-          "addIndex": false
-        }
-      }] ]
+      "plugins": [
+        [
+          "swc-plugin-add-import-extension",
+          {
+            "^~.*": {
+              "extension": "mjs",
+              "addIndex": true
+            },
+            "^\\..*": {
+              "extension": "mjs",
+              "addIndex": false
+            }
+          }
+        ]
+      ]
     },
     "externalHelpers": false,
     "paths": {

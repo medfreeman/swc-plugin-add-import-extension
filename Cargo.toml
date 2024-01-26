@@ -16,7 +16,7 @@ crate-type = ["cdylib", "rlib"]
 regex = "1"
 serde = "1"
 serde_json = "1.0.85"
-swc_core = { version = "0.75.48", features = [
+swc_core = { version = "0.87.28", features = [
   "cached",
   "common",
   "ecma_ast",
@@ -29,8 +29,8 @@ tracing = "*"
 url = "2.5.0"
 
 [dev-dependencies]
-swc_core = { version = "0.75.48", features = ["testing_transform"] }
-testing = "0.33.0"
+swc_core = { version = "0.87.28", features = ["testing_transform"] }
+testing = "0.35.0"
 
 [package.metadata.bin]
 cargo-binstall = { version = "1.4.5", locked = true }
