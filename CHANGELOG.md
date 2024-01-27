@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- - chore(deps): upgrade rust crate `swc_core` to `0.87.28`
+  - chore(deps): upgrade rust crate `swc_core` to `0.87.28`
   - chore(package): add `@swc/core` peerDependency
 
   https://swc.rs/docs/plugin/selecting-swc-core#swc_core
