@@ -29,7 +29,7 @@ tracing = "*"
 url = "2.5.0"
 
 [dev-dependencies]
-swc_core = { version = "0.87.28", features = ["testing_transform"] }
+swc_core = { version = "0.87.28", features = ["ecma_transforms_compat", "ecma_transforms_proposal", "ecma_transforms_typescript", "testing_transform"] }
 testing = "0.35.0"
 
 [package.metadata.bin]
