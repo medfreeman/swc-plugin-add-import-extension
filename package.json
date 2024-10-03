@@ -35,7 +35,7 @@
   "packageManager": "pnpm@8.15.4",
   "devDependencies": {
     "@changesets/changelog-github": "0.5.0",
-    "@changesets/cli": "2.27.1",
+    "@changesets/cli": "2.27.9",
     "json": "11.0.0"
   },
   "peerDependencies": {
